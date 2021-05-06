@@ -1,0 +1,23 @@
+{
+  "name": "scraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Warrioravi/iscrap.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Warrioravi/iscrap/issues"
+  },
+  "homepage": "https://github.com/Warrioravi/iscrap#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.6"
+  }
+}

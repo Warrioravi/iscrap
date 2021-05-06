@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <n1>Some Content for now</n1>
+    <div>
+        <p>this p tag is under div</p>
+    </div>
+    <p id="unique">this p tag is under div with unique ID</p>
+    <h1 class="text">Some Content for h1</h1>
     <h2>Some Content for now</h2>
     <h3>Some Content for now</h3>
     <h4>Some Content for now</h4>
@@ -22,7 +26,7 @@
         <thead>
             <th>
                 <tr>
-                    <td>data 1</td>
+                   <td>data 1</td>
                     <td>data 2</td>
                     <td>data 3</td>
                 </tr>
@@ -49,10 +53,11 @@
     <ul>
         <li>list item
         </li>
-        <li>list item
+        <li><p class="text main"> p element inside list</p>
         </li>
         <li>list item
         </li>
+        <p class="text"> p element inside ul but outside li</p>
     </ul>
 </body>
 </html>
