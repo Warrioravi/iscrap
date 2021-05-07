@@ -26,13 +26,52 @@ function getMatchDetails(link){
                   let balls=ch(allTds[3]).text().trim();
                   let fours=ch(allTds[5]).text().trim();
                   let sixes=ch(allTds[6]).text().trim();
-                  console.log(`Batsman = ${batsmanName} Runs= ${runs} balls= ${balls} fours= ${fours} sixes= ${sixes}`);
-                  
+                  //console.log(`Batsman = ${batsmanName} Runs= ${runs} balls= ${balls} fours= ${fours} sixes= ${sixes}`);
+                  processDetails(teamName,batsmanName,runs,balls,fours,sixes);
               }
-
-          }
-          
-      }
+            }
+        }
       console.log("################################");
  }
+ function processDetails(teamName,batsmanName,runs,balls,fours,sixes){
+     let teamFolderExist= checkTeamFolder(teamName);
+     if(teamFolderExist){
+        let batsmanFileExist = checkBatsmanFile(teamName, batsmanName );
+        if(batsmanFileExist){
+           updateBatsmanFile(teamName,batsmanName,runs,balls,fours,sixes);
+        }
+        else{
+        createBatsmanFile(teamName,batsmanName,runs,balls,fours,sixes);
+        }
+     }
+     else{
+        createTeamFolder()
+     }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  module.exports =getMatchDetails;
