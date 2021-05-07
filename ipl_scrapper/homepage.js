@@ -1,5 +1,6 @@
 const request=require("request");
 const cheerio= require("cheerio");
+const getAllMatches= require("./allMatches");
  request("https://www.espncricinfo.com/series/ipl-2020-21-1210595",function(error,response,data){
      processData(data);
  });
@@ -8,4 +9,5 @@ const cheerio= require("cheerio");
     let aTag= ch(".widget-items.cta-link a");
     let allMatchesLink="https://www.espncricinfo.com"+aTag.attr("href");
     console.log(allMatchesLink);
+    getAllMatches(allMatchesLink);
  }
