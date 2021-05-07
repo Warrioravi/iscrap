@@ -1,5 +1,6 @@
 const request= require('request');
 const cheerio=require('cheerio');
+const getMatchDetails=require('./match');
 
 function getAllMatches(link){
     request(link , function(error, response, data){
@@ -14,8 +15,8 @@ function processData(html){
     console.log(allaTags.length);
     for (let i = 0; i < allaTags.length; i++){
      let matchlink="https://www.espncricinfo.com"+ch(allaTags[i]).attr("href");
-     console.log(matchlink);       
+     getMatchDetails(matchlink);       
     }
 }
-
+//node js feature
 module.exports =getAllMatches;
