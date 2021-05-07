@@ -45,8 +45,49 @@ function getMatchDetails(link){
         }
      }
      else{
-        createTeamFolder()
+        createTeamFolder(teamName);
+        createBatsmanFile(teamName,batsmanName,runs,balls,fours,sixes);
      }
+ }
+ function checkTeamFolder(teamName){
+     let teamPath=`./IPL/${teamName}`;
+     return fs.existsSync(teamPath);
+ }
+ function checkBatsmanFile(teamName,batsmanName){
+    let batsmanPath=`./IPL/${teamName}/${batsmanName}.json` ;
+    return fs.existsSync(batsmanPath);
+ }
+ function createTeamFolder(teamName){
+     let teamPath=`./IPL/${teamName}`;
+     fs.mkdirSync(teamPath);
+ }
+ function updateBatsmanFile(teamName,batsmanName,runs,balls,fours,sixes){
+    let batsmanFilePath=`./IPL/${teamName}/${batsmanName}.json`;
+    let batsmanFile= fs.readFileSync(batsmanFilePath);
+    //stringified jon object
+    //before working on stringified json object convert it to original form
+    batsmanFile=JSON.parse(batsmanFile);
+    let inning= {
+        Runs:runs,
+        Balls:balls,
+        Fours:fours,
+        Sixes:sixes
+    } 
+    batsmanFile.push(inning);
+    fs.writeFileSync(batsmanFilePath,JSON.stringify(batsmanFile));
+
+ }
+ function createBatsmanFile(teamName,batsmanName,runs,balls,fours,sixes){
+    let batsmanFilePath=`./IPL/${teamName}/${batsmanName}.json`;
+    let batsmanFile=[];
+    let inning= {
+        Runs:runs,
+        Balls:balls,
+        Fours:fours,
+        Sixes:sixes
+    } 
+    batsmanFile.push(inning);
+    fs.writeFileSync(batsmanFilePath,JSON.stringify(batsmanFile));
  }
 
 
